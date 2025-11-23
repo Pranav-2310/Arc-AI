@@ -1,84 +1,72 @@
 # Arc-AI
-Arc AI is an offline-first IoT + AI system designed to enable long-range communication, smart automation, and hybrid intelligence using ESP32, LoRa, and a central hub (Raspberry Pi or computer). It continues working even without internet and seamlessly switches to cloud-based AI when connectivity becomes available.
+Arc AI is a hybrid, offline-first IoT and AI communication framework designed to bring intelligent automation to locations where internet connectivity is unreliable, limited, or completely unavailable. The system integrates ESP32 edge nodes, long-range LoRa modules, and a central hub (Raspberry Pi or computer) to create an intelligent mesh-like communication network. When internet is available, Arc AI leverages cloud-based AI models for advanced processing. When offline, it continues operating autonomously through local logic.
 
-This repository contains all the source code, circuits, documentation, and project files for the Arc AI Main Hub, Arc AI Mini Hub, and Arc AI App.
+This repository contains the complete implementation of Arc AI Main Hub, Arc AI Mini Hub, and Arc AI App, along with designs, conceptual documentation, and example workflows.
+
+🌐 Why Arc AI?
+
+Most IoT systems today depend entirely on cloud servers. They fail when:
+	•	Internet is unavailable
+	•	Connectivity is unstable
+	•	Deployment is in rural/remote areas
+	•	There is no Wi-Fi or mobile coverage
+
+Arc AI solves this problem by enabling:
+	•	Long-range wireless communication
+	•	Offline functionality
+	•	Local processing on the hub
+	•	Cloud AI integration when online
+	•	Low-power consumption for remote deployments
+
+Arc AI ensures IoT devices don’t stop working just because the internet does.
 
 🚀 Key Features
 
-Offline-First Architecture — Works even with zero internet.
+1. Offline-First Architecture
 
-Long-Range LoRa Communication — Multi-kilometer low-power data transmission.
+Arc AI continues working without internet. All data remains accessible locally through LoRa communication and hub processing.
 
-Hybrid AI Engine — Uses cloud LLMs when online; local logic when offline.
+2. Long-Range LoRa Networking
 
-Scalable IoT Network — Connect multiple ESP32 nodes to the hub.
+Achieve communication ranges of 2–10+ km, enabling large-scale outdoor deployments.
 
-Energy-Efficient Design — Supports battery & solar-powered mini hubs.
+3. Hybrid AI Integration
+	•	When online: uses cloud LLMs (OpenAI, HuggingFace, etc.)
+	•	When offline: falls back to internal logic and pre-set rules
 
-Cross-Platform Integration — Works with laptops, phones, and IoT nodes.
+4. Scalable Multi-Node Network
 
-Reliable Store-and-Forward Messaging — No data loss during outages.
+Add dozens of ESP32 nodes without modifying the whole system.
+
+5. Energy Efficient & Solar-Ready
+
+Arc AI Mini Hub supports solar + battery configurations for off-grid environments.
+
+6. Multi-Device Access
+
+Interact with Arc AI via:
+	•	Mobile phones
+	•	Laptops
+	•	Web apps
+	•	Local Wi-Fi / BLE
+
+7. Store-and-Forward Reliability
+
+No data is lost during temporary disconnections.
 
 🧠 What Arc AI Solves
 
-Most IoT systems break when internet connectivity is weak or unavailable. Arc AI solves this by enabling:
-
-Communication across long distances without Wi-Fi/cell towers
-
-Intelligent automation through cloud LLM processing
-
-Local fallback processing when offline
-
-Reliable remote monitoring in rural, industrial, or disaster areas
-
-🏗️ System Architecture Overview
-ESP32 Nodes <—LoRa—> Mini Hub (optional) <—LoRa—> Main Hub (Pi/Laptop) <—Internet—> Cloud AI
-                                                              |
-                                                           Mobile / Web App
-
-📁 Folder Structure
-Arc-AI/
-│
-├── arc-ai-main/        # Code & configs for main hub
-├── arc-ai-mini/        # Code for mini hub / repeater
-├── arc-ai-app/         # Frontend app (Next.js / React)
-│   ├── package.json
-│   ├── src/
-│   ├── public/
-│   └── .gitignore       # excludes node_modules
-│
-└── docs/               # Design documents & circuit diagrams
-
-
-⚠️ Note: node_modules is intentionally excluded.
-Install dependencies using npm install.
-
+Arc AI addresses major limitations of today’s IoT systems:
+	•	No Internet? System still works.
+	•	Large-field monitoring? LoRa solves range limitations.
+	•	High cloud cost? Only send essential data to the cloud.
+	•	Remote deployment? Use solar-based mini hubs.
+	•	Need AI? Cloud LLMs can be integrated anytime.
+  
 🔧 Setup & Installation
 1. Clone the Repository
 git clone https://github.com/Pranav-2310/Arc-AI.git
 cd Arc-AI
-
-2. Install App Dependencies
-cd arc-ai-app
-npm install
-
-3. Run the App
-npm run dev
-
-4. Run Main Hub Scripts
-
-Inside arc-ai-main/, run the appropriate Python/Node scripts:
-
-python3 main_hub.py
-
-
-(Adjust based on your actual file names.)
-
-5. Mini Hub
-
-For the mini hub:
-
-python3 mini_hub.py
 
 📡 Hardware Used
 
